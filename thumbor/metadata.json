@@ -1,0 +1,45 @@
+{
+  "name": "thumbor",
+  "version": "0.4.1",
+  "description": "Installs and configures thumbor",
+  "long_description": "thumbor Cookbook\n================\n[![Coverage Status](https://coveralls.io/repos/zanui/chef-thumbor/badge.png)](https://coveralls.io/r/zanui/chef-thumbor)\n[![Build Status](https://travis-ci.org/zanui/chef-thumbor.png?branch=master)](https://travis-ci.org/zanui/chef-thumbor)\n\nInstalls thumbor from package OR source code and sets up configuration.\n\n\nRequirements\n------------\n\n#### packages\n- `apt` - thumbor needs toaster to brown your bagel.\n\nAttributes\n----------\n\n#### thumbor::default\n`node['thumbor']` attributes:\n<table>\n  <tr>\n    <th>Key</th>\n    <th>Type</th>\n    <th>Description</th>\n    <th>Default</th>\n  </tr>\n  <tr>\n    <td><tt>processes</tt></td>\n    <td>Integer</td>\n    <td>Number of thumbor processes running in parallel</td>\n    <td><tt>4</tt></td>\n  </tr>\n  <tr>\n    <td><tt>base_port</tt></td>\n    <td>Integer</td>\n    <td>Base port used to generate the port thumbor processes listen on (e.g. 9000, 9001, ...)</td>\n    <td><tt>9000</tt></td>\n  </tr>\n</table>\n\n#### thumbor::source\n\n#### thumbor::monit\n\n\nUsage\n-----\n#### thumbor::default\nTODO: Write usage instructions for each cookbook.\n\ne.g.\nJust include `thumbor` in your node's `run_list`:\n\n```json\n{\n  \"name\":\"my_node\",\n  \"run_list\": [\n    \"recipe[thumbor]\"\n  ]\n}\n```\n\n#### AWS OpsWorks\nTODO: Write usage instructions\n\n\nContributing\n------------\nTODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.\n\ne.g.\n1. Fork the repository on Github\n2. Create a named feature branch (like `add_component_x`)\n3. Write you change\n4. Write tests for your change (if applicable)\n5. Run the tests, ensuring they all pass\n6. Submit a Pull Request using Github\n\nLicense and Authors\n-------------------\n- Author:: [Enrico Stahn](https://github.com/estahn) (<enrico.stahn@zanui.com.au>)\n- Author:: [Enrico Baioni](https://github.com/ebaioni) (<enrico.baioni@gmail.com>)\n\n```text\nCopyright:: 2013 Zanui, Internet Services Australia 3 Pty Limited\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n```\n",
+  "maintainer": "Zanui",
+  "maintainer_email": "engineering@zanui.com.au",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "python": ">= 0.0.0",
+    "nginx": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "thumbor/processes": {
+      "display_name": "Number of processes",
+      "description": "Number of thumbor processes running in parallel",
+      "default": "4"
+    },
+    "thumbor/base_port": {
+      "display_name": "Number of processes",
+      "description": "Number of thumbor processes running in parallel",
+      "default": "9000"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "thumbor::default": "Installs thumbor from globocom Private Package Archive (PPA)",
+    "thumbor::source": "Installs thumbor from GitHub repository"
+  }
+}
