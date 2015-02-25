@@ -23,7 +23,7 @@ apt_repository 'thumbor' do
   distribution 'saucy'
   components ['main']
   keyserver 'keyserver.ubuntu.com'
-  key 'C6C3D73D1225313B'
+  key 'CBEC8F27'
   deb_src true
 end
 
@@ -70,7 +70,7 @@ template '/etc/default/thumbor' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, 'service[thumbor]'
+#  notifies :restart, 'service[thumbor]'
   variables({
               :instances => node['thumbor']['processes'],
               :base_port => node['thumbor']['base_port']
@@ -89,7 +89,7 @@ template '/etc/thumbor.conf' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, 'service[thumbor]'
+#  notifies :restart, 'service[thumbor]'
   variables({
               :options    => node['thumbor']['options']
             })
@@ -100,16 +100,11 @@ file '/etc/thumbor.key' do
   owner 'root'
   group 'root'
   mode '0644'
-  notifies :restart, 'service[thumbor]'
+#  notifies :restart, 'service[thumbor]'
 end
 
-python_pip 'git+git://github.com/zanui/thumbor_aws.git@webp' do
-  action :install
-  notifies :restart, 'service[thumbor]'
-end
-
-service 'thumbor' do
-  provider Chef::Provider::Service::Upstart
-  supports :restart => true, :start => true, :stop => true, :reload => true
-  action [:enable, :start]
-end
+#service 'thumbor' do
+#  provider Chef::Provider::Service::Upstart
+#  supports :restart => true, :start => true, :stop => true, :reload => true
+#  action [:enable, :start]
+#end
